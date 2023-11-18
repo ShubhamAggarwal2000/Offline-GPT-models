@@ -21,6 +21,16 @@ Before you start, ensure you have the following prerequisites installed on your 
 
 Setting up the Environment
 
+Clone the GPT-Neo Model Repository:
+The GPT-Neo model can be cloned from its repository. Open a terminal and run:
+
+            git clone https://github.com/EleutherAI/gpt-neo-125m.git
+            
+Specify the Model Path:
+
+After cloning, note the path where the GPT-Neo model is stored.
+This path needs to be specified in your backend application where the model is loaded.
+
 Clone the Repository:
 
     git clone https://github.com/ShubhamAggarwal2000/Offline-GPT-models.git
