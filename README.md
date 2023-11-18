@@ -67,16 +67,5 @@ Ensure the Flask server is running in the background as the frontend interacts w
 Testing the Application
 Once the Flask server is running and the frontend is opened in a browser, you can test the chat functionality by typing messages and checking the responses from the GPT-Neo model.
 
-
-Usage
-Explain how users can interact with the application, including any available commands or features they can use.
-
-Architecture
-Provide an overview of your project's architecture. Include:
-
-Backend: Description of the Flask server, endpoints, and model integration.
-Frontend: Overview of the frontend structure and technologies used.
-
-
 Acknowledgements
 Credits to any third-party assets, libraries, or code used in the project.
