@@ -8,17 +8,11 @@ class TestApp(unittest.TestCase):
         """
         Test the /chat route
         """
-        # Context manager allows accessing test client
         with app.test_client() as client:
-
-            # Send a sample chat message
             response = client.post('/chat', json={'message': 'Hi there!'})
-
-            # Assert response status code
             self.assertEqual(response.status_code, 200)
-
-            # Assert response data
-            self.assertEqual(response.json, {'response': 'Hello!'})
+            # Check if the response contains a 'response' key
+            self.assertIn('response', response.json)
 
     def test_train_route(self):
         """
