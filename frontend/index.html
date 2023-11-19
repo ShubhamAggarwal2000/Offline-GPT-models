@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat with GPT Model</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div id="chat-container">
         <div id="chat-box">
@@ -14,6 +16,15 @@
         <input type="text" id="user-input" placeholder="Type your message here...">
         <button id="send-btn">Send</button>
     </div>
-    <script src="js/script.js"></script>
+
+    <div id="upload-container">
+        <input type="file" id="file-input" multiple />
+        <button id="upload-btn">Upload Files</button>
+    </div>
+
+    <!-- Include config.js before script.js -->
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/script.js"></script>
 </body>
+
 </html>

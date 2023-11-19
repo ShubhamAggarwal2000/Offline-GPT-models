@@ -1,3 +1,5 @@
+import { BASE_URL } from './config.js';
+
 document.getElementById('send-btn').addEventListener('click', function () {
     var userInput = document.getElementById('user-input');
     var message = userInput.value.trim();
@@ -14,6 +16,21 @@ document.getElementById('send-btn').addEventListener('click', function () {
     }
 });
 
+document.getElementById('upload-btn').addEventListener('click', function () {
+    var files = document.getElementById('file-input').files;
+    var formData = new FormData();
+    for (var i = 0; i < files.length; i++) {
+        formData.append('files[]', files[i]);
+    }
+
+    fetch(`${BASE_URL}/upload`, {  // Updated to use BASE_URL
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+});
 
 function displayMessage(message, sender) {
     var chatBox = document.getElementById('chat-box');
@@ -24,13 +41,8 @@ function displayMessage(message, sender) {
     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
 }
 
-
-
-// This function sends a POST request to your Flask backend(/chat route) with the user's message.
-// When it receives a response, it displays the message returned by the backend.
-
 function sendMessageToBackend(message) {
-    fetch('http://localhost:5000/chat', {  // Make sure to use your Flask server's URL
+    fetch(`${BASE_URL}/chat`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
