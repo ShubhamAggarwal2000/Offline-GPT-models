@@ -6,7 +6,11 @@ import os
 import torch
 import io
 from werkzeug.utils import secure_filename
+import logging
 
+logging.basicConfig(level=logging.DEBUG) 
+logger = logging.getLogger('applogger')
+logger.setLevel(logging.DEBUG)
 
 
 # Create an instance of the Flask app
@@ -62,6 +66,7 @@ def chat():
 # Route handler for /upload endpoint
 @app.route('/upload', methods=['POST'])
 def upload_files():
+    logger.debug("Received upload request")
     if 'files[]' not in request.files:
         return jsonify({'status': 'No file part'})
     
